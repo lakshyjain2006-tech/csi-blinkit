@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BlinkIt-The entire store is in your pocket</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+
+        <div class="logo">
+            <a href="javascript:navigate('home');">
+                <img src="images/log.jpg" alt="BlinkIt-logo">
+            </a>
+        </div>
+
+        <div class="address">
+            <input type="search" id="Address" placeholder="Enter the delivery address">
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="productSearch" placeholder="Search for products (e.g., Onions, Milk)">
+        </div>
+
+        <div class="l-c">
+            <div class="login">
+                <a href='#' id="loginLink">Login</a>
+            </div>
+
+            <div class="cart-icon">
+                <a href='#' id="cartLink">
+                    <img src="images/cart.png" alt="my cart">
+                    My Cart <span id="cartItemCount" style="margin-left: 5px; font-weight: 700;">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero-section">
+            <div>
+                <a href="#">
+                    <img src="images/pan.webp" alt="hero banner">
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <section class="small-hero-section flex flex-wrap lg:flex-nowrap gap-4">
+
+            <div class="flex-1 min-w-[200px]">
+                <a href="#">
+                    <img class="rounded-lg w-full" src="images/pharmacy.avif" alt="Pharmacy banner">
+                </a>
+            </div>
+
+            <div class="flex-1 min-w-[200px]">
+                <a href="#">
+                    <img class="rounded-lg w-full" src="images/pet.avif" alt="Pet Care banner">
+                </a>
+            </div>
+
+            <div class="flex-1 min-w-[200px]">
+                <a href="#">
+                    <img class="rounded-lg w-full" src="images/baby.avif" alt="Baby Care banner">
+                </a>
+            </div>
+
+        </section>
+    </div>
+    <div class="container">
+        <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 15px;">Shop by Category</h2>
+        <section class="categories-container">
+            <div id="categoryLinks" style="white-space: nowrap;">
+                </div>
+        </section>
+    </div>
+
+    <div class="container">
+        <h2 id="listingTitle" style="font-size: 24px; font-weight: 700; margin-bottom: 15px; margin-top: 30px;">Popular Products</h2>
+        <section id="productGrid">
+            </section>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="javascript:navigate('home')">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="javascript:navigate('category-Dairy Products')">Dairy Products</a></li>
+                    <li><a href="javascript:navigate('category-Fruits')">Fruits</a></li>
+                    <li><a href="javascript:navigate('category-Vegetables')">Vegetables</a></li>
+                    <li><a href="javascript:navigate('category-Snacks')">Snacks</a></li>
+                    <li><a href="#">Masala, Oil & more</a></li>
+                    <li><a href="#">Personal care</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><img src="images/insta.png" alt="instagram"></a>
+                    <a href="#"><img src="images/facebook.png" alt="facebook"></a>
+                    <a href="#"><img src="images/twitter.png" alt="twitter"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; BlinkIt Clone . All rights are reserved . only for education purpose </p>
+        </div>
+    </footer>
+
+
+    <div id="cartModal" class="modal-overlay">
+        <div class="modal-content">
+
+            <h2 class="text-2xl font-bold" style="color: var(--primary-green);">My Cart Summary</h2>
+            <button id="cartModalCloseButton" class="modal-close-btn">
+                <img src="images/close.png" alt="Close Cart" style="width: 24px; height: 24px;">
+            </button>
+
+            <div class="mb-4 border-b pb-2"></div>
+
+            <div id="cartItemsList">
+                </div>
+            
+            <div id="cartTotal" class="mt-4 pt-4 font-bold text-xl flex justify-between">
+                <span>Total:</span>
+                <span>₹0</span>
+            </div>
+            <button class="w-full mt-4 py-3 bg-red-500 text-white font-bold rounded-lg hover:bg-red-600 transition duration-200">
+                PROCEED TO CHECKOUT
+            </button>
+        </div>
+    </div>
+
+
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 class="text-2xl font-bold mb-6" style="color: var(--primary-green);">Welcome Back!</h2>
+            <button id="loginModalCloseButton" class="modal-close-btn">
+                <img src="images/close.png" alt="Close Login" style="width: 24px; height: 24px;">
+            </button>
+
+            <form class="login-form" onsubmit="alert('Kripya login na kare abhi backend par kaam nhi kara hai '); return false;">
+                <input type="tel" placeholder="Enter your 10-digit mobile number" required pattern="[0-9]{10}" maxlength="10">
+                <button type="submit">CONTINUE</button>
+                <p>By continuing, you agree to our <a href="#">Terms of Service</a> & <a href="#">Privacy Policy</a></p>
+            </form>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
